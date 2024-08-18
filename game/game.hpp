@@ -33,34 +33,44 @@ private:
     void restartGame();
     void destroyAll();
 
-    sf::RenderWindow window;
-    sf::Clock clock;
+    sf::RenderWindow window {};
+    sf::Clock clock {};
     
-    Sprite* background; 
+    Sprite* background = nullptr; 
+    std::vector<sf::IntRect> backgroundAnimRect{};
 
-    Player* playerSprite;
+    Player* playerSprite = nullptr;
+    std::vector<sf::IntRect> playerAnimRect{};
 
     std::vector<Rain*> rainDrops;
     float rainRespawnTime; 
+    std::vector<sf::IntRect> rainAnimRect{}; 
 
     std::vector<Coin*> coins;
     float coinRespawnTime;
+    std::vector<sf::IntRect> coinAnimRect{};
 
     std::vector<Lightning*> lightnings;
     float lightningRespawnTime; 
+    std::vector<sf::IntRect> lightningAnimRect{};
 
     std::vector<TextClass*> endMessage;
     std::string endingText;
 
-    TextClass* scoreText; 
+    TextClass* scoreText = nullptr; 
 
-    Heart* heart; 
+    Heart* heart = nullptr; 
+    std::vector<sf::IntRect> heartAnimRect{}; 
 
-    MusicClass* backgroundMusic;
-    SoundClass* playerDeadSound;
-    SoundClass* coinSound;
-    SoundClass* rainSound;
-    SoundClass* lightningSound; 
+    MusicClass* backgroundMusic = nullptr;
+
+    SoundClass* playerDeadSound = nullptr;
+
+    SoundClass* coinSound = nullptr;
+
+    SoundClass* rainSound = nullptr;
+
+    SoundClass* lightningSound = nullptr; 
 };
 
 #endif /* game_hpp */

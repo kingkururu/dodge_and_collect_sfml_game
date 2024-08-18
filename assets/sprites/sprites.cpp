@@ -7,8 +7,8 @@
 #include "sprites.hpp"
 
 //base class (sprite)
-Sprite::Sprite(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath) : position(position), size(size), skin(new sf::Texture), spriteCreated(new sf::Sprite), visibleState(true), moveState(true),
-    speed(200.0){
+Sprite::Sprite(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, std::vector<sf::IntRect> const animationRects) : position(position), size(size), skin(new sf::Texture), animationRects(animationRects), spriteCreated(new sf::Sprite), visibleState(true), moveState(true),
+    speed(200.0), animNum(0){
     
     if(!skin->loadFromFile(texturePath)){
         std::cerr << "Erorr in loading sprite texture from: " << texturePath << std::endl;
@@ -18,6 +18,10 @@ Sprite::Sprite(sf::Vector2f position, sf::Vector2f size, const std::string& text
     spriteCreated->setTexture(*skin);
     spriteCreated->setPosition(position);
     spriteCreated->setScale(size);
+}
+
+void Sprite::setRect(int animNum){
+   spriteCreated->setTextureRect(animationRects[0]); 
 }
 
 Sprite::~Sprite(){
@@ -65,11 +69,3 @@ void Coin::updateCoin(){
     position.y += speed * GameComponents.deltaTime;
     updatePos();
 }
-
-void Lightning::updateLightning(){
-    
-}
-
-// void Heart::updateHeart(){
-//     if(GameScore.playerHit == )
-// }

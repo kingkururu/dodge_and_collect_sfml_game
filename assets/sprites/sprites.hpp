@@ -17,9 +17,10 @@
 
 class Sprite{
 public:
-    Sprite(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath);
+    Sprite(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, const std::vector<sf::IntRect> animationRects);
     virtual ~Sprite();
     void updatePos();
+    void setRect(int animNum); 
     sf::Vector2f const getSpritePos() const { return position; };
     sf::Sprite const returnSpritesShape(){ return *spriteCreated; }
     bool const getVisibleState() const { return visibleState; }
@@ -31,15 +32,17 @@ protected:
     sf::Vector2f position;
     sf::Vector2f size;
     sf::Texture* skin = nullptr;
+    std::vector<sf::IntRect> animationRects; 
     sf::Sprite* spriteCreated;
-    bool visibleState ;
+    bool visibleState;
     bool moveState;
     float speed;
+    int animNum; 
 };
 
 class Background : public Sprite{
 public:
-    Background(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath) : Sprite(position, size, texturePath) {}
+    Background(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, const std::vector<sf::IntRect>  animationRectsh) : Sprite(position, size, texturePath, animationRects) {}
     ~Background( ) override{ };
     void updateBackground();
 };
@@ -47,7 +50,7 @@ public:
 //player class
 class Player : public Sprite{
 public:
-    Player(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath) : Sprite(position, size, texturePath) {}
+    Player(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, const std::vector<sf::IntRect>  animationRects) : Sprite(position, size, texturePath, animationRects) {}
     ~Player( ) override{ };
     void updatePlayer();
 };
@@ -55,7 +58,7 @@ public:
 //enemy class
 class Rain : public Sprite{
 public:
-    Rain(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath) : Sprite(position, size, texturePath) {}
+    Rain(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, const std::vector<sf::IntRect> animationRects) : Sprite(position, size, texturePath, animationRects) {}
     ~Rain( ) override{ };
     void updateRain();
     
@@ -65,23 +68,21 @@ private:
 
 class Lightning : public Sprite{
     public:
-    Lightning(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath) : Sprite(position, size, texturePath) {}
+    Lightning(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, const std::vector<sf::IntRect> animationRects) : Sprite(position, size, texturePath, animationRects) {}
     ~Lightning() override{};
-    void updateLightning(); 
 };
 
 class Coin : public Sprite{
 public:
-    Coin(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath) : Sprite(position, size, texturePath) {}
+    Coin(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, const std::vector<sf::IntRect> animationRects) : Sprite(position, size, texturePath, animationRects) {}
     ~Coin() override{};
     void updateCoin(); 
 };
 
 class Heart : public Sprite{
 public:
-    Heart(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath) : Sprite(position, size, texturePath) {}
+    Heart(sf::Vector2f position, sf::Vector2f size, const std::string& texturePath, const std::vector<sf::IntRect> animationRects) : Sprite(position, size, texturePath, animationRects) {}
     ~Heart() override{};
-    void updateHeart(); 
 }; 
 
 #endif /* sprites_hpp */
