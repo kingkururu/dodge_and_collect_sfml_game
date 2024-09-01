@@ -17,6 +17,7 @@ Press (D) key to move the player right
 Press (B) key to restart game
 
 --------------------------------------------------------- ASSET SOURCES
+
 SPRITES:
 Main player sprite
 https://craftpix.net/freebies/free-pixel-art-tiny-hero-sprites/ 
