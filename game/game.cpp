@@ -440,5 +440,6 @@ void GameManager::restartGame(){
         lightning->setMoveState(true);
     }
     backgroundMusic->returnMusic()->play();
+    
 }
 
