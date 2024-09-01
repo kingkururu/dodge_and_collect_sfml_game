@@ -21,24 +21,31 @@ Press (B) key to restart game
 SPRITES:
 Main player sprite
 https://craftpix.net/freebies/free-pixel-art-tiny-hero-sprites/ 
+
 Coin sprite
 https://www.vecteezy.com/vector-art/2695182-golden-coin-with-star-icon-in-pixel-style-vector-illustration
+
 Lightning sprite
 https://craftpix.net/freebies/free-animated-explosion-sprite-pack/?num=1&count=21&sq=lightning&pos=6
 
 SOUND: 
 Lighting sound 
 https://freesound.org/people/newlocknew/sounds/696391/
+
 Coin sound
 https://freesound.org/people/LoafDV/sounds/554803/
+
 Raindrop sound
 https://freesound.org/people/rombart/sounds/186747/
+
 Player dead (game end) sound
 https://freesound.org/people/Khrinx/sounds/333694/ 
+
 Background music
 https://pixabay.com/music/video-games-flat-8-bit-gaming-music-instrumental-211547/
 
 FONT:
+
 Pixel font
 https://www.dafont.com/llpixel.font
 
